@@ -4,5 +4,6 @@
     [Brand] VARCHAR(50) NULL, 
     [Model] VARCHAR(50) NULL, 
     [Seats] INT NULL, 
-    [Equipmentss] NCHAR(10) NULL
+    [Equipments] INT NULL, 
+    CONSTRAINT [FK_Cars_ToTable] FOREIGN KEY ([Equipments]) REFERENCES [Equipments]([Id])
 )
