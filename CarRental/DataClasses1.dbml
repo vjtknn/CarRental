@@ -12,7 +12,7 @@
   </Table>
   <Table Name="dbo.Equipments" Member="Equipments">
     <Type Name="Equipment">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Association Name="Equipment_Car" Member="Cars" ThisKey="Id" OtherKey="Equipments" Type="Car" />
     </Type>

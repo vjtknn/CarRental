@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.Brand = new System.Windows.Forms.TextBox();
@@ -36,15 +37,40 @@
             this.Model = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Seats = new System.Windows.Forms.TextBox();
+            this.carsDataSet = new CarRental.CarsDataSet();
+            this.carsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carsDataSet1 = new CarRental.CarsDataSet1();
+            this.carsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carsTableAdapter = new CarRental.CarsDataSet1TableAdapters.CarsTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.brandDataGridViewTextBoxColumn,
+            this.modelDataGridViewTextBoxColumn,
+            this.seatsDataGridViewTextBoxColumn,
+            this.equipmentsDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.carsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 244);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(543, 244);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
@@ -107,11 +133,70 @@
             this.Seats.TabIndex = 6;
             this.Seats.TextChanged += new System.EventHandler(this.Seats_TextChanged);
             // 
+            // carsDataSet
+            // 
+            this.carsDataSet.DataSetName = "CarsDataSet";
+            this.carsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carsDataSetBindingSource
+            // 
+            this.carsDataSetBindingSource.DataSource = this.carsDataSet;
+            this.carsDataSetBindingSource.Position = 0;
+            // 
+            // carsDataSet1
+            // 
+            this.carsDataSet1.DataSetName = "CarsDataSet1";
+            this.carsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carsBindingSource
+            // 
+            this.carsBindingSource.DataMember = "Cars";
+            this.carsBindingSource.DataSource = this.carsDataSet1;
+            // 
+            // carsTableAdapter
+            // 
+            this.carsTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // brandDataGridViewTextBoxColumn
+            // 
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // seatsDataGridViewTextBoxColumn
+            // 
+            this.seatsDataGridViewTextBoxColumn.DataPropertyName = "Seats";
+            this.seatsDataGridViewTextBoxColumn.HeaderText = "Seats";
+            this.seatsDataGridViewTextBoxColumn.Name = "seatsDataGridViewTextBoxColumn";
+            this.seatsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // equipmentsDataGridViewTextBoxColumn
+            // 
+            this.equipmentsDataGridViewTextBoxColumn.DataPropertyName = "Equipments";
+            this.equipmentsDataGridViewTextBoxColumn.HeaderText = "Equipments";
+            this.equipmentsDataGridViewTextBoxColumn.Name = "equipmentsDataGridViewTextBoxColumn";
+            this.equipmentsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // NewCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 397);
+            this.ClientSize = new System.Drawing.Size(567, 397);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Seats);
             this.Controls.Add(this.label2);
@@ -122,7 +207,12 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "NewCar";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.NewCar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +228,15 @@
         private System.Windows.Forms.TextBox Model;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Seats;
+        private System.Windows.Forms.BindingSource carsDataSetBindingSource;
+        private CarsDataSet carsDataSet;
+        private CarsDataSet1 carsDataSet1;
+        private System.Windows.Forms.BindingSource carsBindingSource;
+        private CarsDataSet1TableAdapters.CarsTableAdapter carsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seatsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipmentsDataGridViewTextBoxColumn;
     }
 }
