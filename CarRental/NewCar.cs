@@ -90,7 +90,7 @@ namespace CarRental
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            allEquipments.add
+            allEquipments.Add(dataGridView2.CurrentRow);
             MessageBox.Show(addedEquipments.Text);
             addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
 
