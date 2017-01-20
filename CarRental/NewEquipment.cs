@@ -12,7 +12,7 @@ namespace CarRental
 {
     public partial class NewEquipment : Form
     {
-        DataClasses1DataContext db;
+        linqtosqlclassesDataContext db;
         public NewEquipment()
         {
             InitializeComponent();
@@ -20,12 +20,12 @@ namespace CarRental
         }
         private void get_all_records()
         {
-            db = new DataClasses1DataContext();
+            db = new linqtosqlclassesDataContext();
             dataGridView1.DataSource = db.Equipments;
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            db = new DataClasses1DataContext();
+            db = new linqtosqlclassesDataContext();
 
             Equipment newEquipment = new Equipment();
             newEquipment.Name = NameElement.Text;
@@ -40,7 +40,7 @@ namespace CarRental
         private void NewEquipment_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carsDataSet.Equipments' table. You can move, or remove it, as needed.
-            this.equipmentsTableAdapter.Fill(this.carsDataSet.Equipments);
+            //this.equipmentsTableAdapter.Fill(this.carsDataSet.Equipments);
 
         }
     }
