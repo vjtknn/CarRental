@@ -136,7 +136,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(282, 265);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(173, 120);
+            this.dataGridView2.Size = new System.Drawing.Size(144, 120);
             this.dataGridView2.TabIndex = 8;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
