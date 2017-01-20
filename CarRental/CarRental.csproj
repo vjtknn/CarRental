@@ -138,6 +138,9 @@
       <LastGenOutput>linqtosqlclasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\CarRental.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\CarRental.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Cars_Eqipment.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

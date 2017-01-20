@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarRental
 {
-    class Class1
+    class Vehicle
     {
+
     }
 }

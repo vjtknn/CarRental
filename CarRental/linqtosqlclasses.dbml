@@ -1,20 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Cars" Class="linqtosqlclassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Cars.mdf;Integrated Security=True" SettingsObjectName="CarRental.Properties.Settings" SettingsPropertyName="CarsConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Cars" Member="Cars">
-    <Type Name="Car">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Brand" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Model" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Seats" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Equipments" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Equipment_Car" Member="Equipment" ThisKey="Equipments" OtherKey="Id" Type="Equipment" IsForeignKey="true" />
+  <Table Name="dbo.Cars_Eqipments" Member="Cars_Eqipments">
+    <Type Name="Cars_Eqipment">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cars_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Equipments_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Equipment_Cars_Eqipment" Member="Equipment" ThisKey="Equipments_id" OtherKey="Id" Type="Equipment" IsForeignKey="true" />
+      <Association Name="Car_Cars_Eqipment" Member="Car" ThisKey="Cars_id" OtherKey="Id" Type="Car" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Equipments" Member="Equipments">
     <Type Name="Equipment">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Association Name="Equipment_Car" Member="Cars" ThisKey="Id" OtherKey="Equipments" Type="Car" />
+      <Association Name="Equipment_Cars_Eqipment" Member="Cars_Eqipments" ThisKey="Id" OtherKey="Equipments_id" Type="Cars_Eqipment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cars" Member="Cars">
+    <Type Name="Car">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Brand" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Seats" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Car_Cars_Eqipment" Member="Cars_Eqipments" ThisKey="Id" OtherKey="Cars_id" Type="Cars_Eqipment" />
     </Type>
   </Table>
 </Database>

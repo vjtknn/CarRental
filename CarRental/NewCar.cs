@@ -13,11 +13,31 @@ namespace CarRental
     public partial class NewCar : Form
     {
         linqtosqlclassesDataContext db;
+        public List<object> allEquipments = new List<object>();
         public NewCar()
         {
             InitializeComponent();
+            dev_insert_equipment();
             get_all_records();
+            
         }
+
+        //Developer Tools!
+        private void dev_insert_equipment()
+        {
+            db = new linqtosqlclassesDataContext();
+
+            Equipment equipment = new Equipment();
+            equipment.Name = "Klima";
+            Equipment equipment2 = new Equipment();
+            equipment2.Name = "Wspomaganie";
+
+            db.Equipments.InsertOnSubmit(equipment);
+            db.Equipments.InsertOnSubmit(equipment2);
+            db.SubmitChanges();
+        }
+        //End Developer Tools!!
+
         private void get_all_records()
         {
             db = new linqtosqlclassesDataContext();
@@ -59,14 +79,24 @@ namespace CarRental
 
         private void NewCar_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'carsDataSet.Equipments' table. You can move, or remove it, as needed.
-            this.equipmentsTableAdapter.Fill(this.carsDataSet.Equipments);
-            // TODO: This line of code loads data into the 'carsDataSet1.Cars' table. You can move, or remove it, as needed.
-            //this.carsTableAdapter.Fill(this.carsDataSet1.Cars);
+
 
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            allEquipments.add
+            MessageBox.Show(addedEquipments.Text);
+            addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
