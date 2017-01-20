@@ -62,6 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +101,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CarsDataSet.xsc">
+      <DependentUpon>CarsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CarsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarsDataSet.xss">
+      <DependentUpon>CarsDataSet.xsd</DependentUpon>
+    </None>
     <None Include="linqtosqlclasses.dbml.layout">
       <DependentUpon>linqtosqlclasses.dbml</DependentUpon>
     </None>
