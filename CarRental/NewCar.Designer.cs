@@ -37,20 +37,15 @@
             this.Model = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Seats = new System.Windows.Forms.TextBox();
-            this.carsDataSet = new CarRental.CarsDataSet();
             this.carsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carsDataSet1 = new CarRental.CarsDataSet1();
             this.carsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carsTableAdapter = new CarRental.CarsDataSet1TableAdapters.CarsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,31 +127,6 @@
             this.Seats.Size = new System.Drawing.Size(100, 20);
             this.Seats.TabIndex = 6;
             this.Seats.TextChanged += new System.EventHandler(this.Seats_TextChanged);
-            // 
-            // carsDataSet
-            // 
-            this.carsDataSet.DataSetName = "CarsDataSet";
-            this.carsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carsDataSetBindingSource
-            // 
-            this.carsDataSetBindingSource.DataSource = this.carsDataSet;
-            this.carsDataSetBindingSource.Position = 0;
-            // 
-            // carsDataSet1
-            // 
-            this.carsDataSet1.DataSetName = "CarsDataSet1";
-            this.carsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carsBindingSource
-            // 
-            this.carsBindingSource.DataMember = "Cars";
-            this.carsBindingSource.DataSource = this.carsDataSet1;
-            // 
-            // carsTableAdapter
-            // 
-            this.carsTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -209,9 +179,7 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.NewCar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -229,10 +197,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Seats;
         private System.Windows.Forms.BindingSource carsDataSetBindingSource;
-        private CarsDataSet carsDataSet;
-        private CarsDataSet1 carsDataSet1;
         private System.Windows.Forms.BindingSource carsBindingSource;
-        private CarsDataSet1TableAdapters.CarsTableAdapter carsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;

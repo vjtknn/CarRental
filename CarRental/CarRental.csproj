@@ -62,21 +62,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarsDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarsDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataClasses1.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="linqtosqlclasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqtosqlclasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="NewCar.cs">
       <SubType>Form</SubType>
@@ -98,23 +93,12 @@
     <Compile Include="RentACar.Designer.cs">
       <DependentUpon>RentACar.cs</DependentUpon>
     </Compile>
-    <None Include="CarsDataSet.xsc">
-      <DependentUpon>CarsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CarsDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarsDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarsDataSet.xss">
-      <DependentUpon>CarsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="linqtosqlclasses.dbml.layout">
+      <DependentUpon>linqtosqlclasses.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="NewCar.resx">
       <DependentUpon>NewCar.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,9 +117,9 @@
     <EmbeddedResource Include="RentACar.resx">
       <DependentUpon>RentACar.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataClasses1.dbml">
+    <None Include="linqtosqlclasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <LastGenOutput>linqtosqlclasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

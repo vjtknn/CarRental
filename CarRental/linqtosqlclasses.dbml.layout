@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linqtosqlclasses">
+  <DataContextMoniker Name="/linqtosqlclassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7b4bc29c-8582-4231-b563-2e5c36345ba0" absoluteBounds="0.75, 2.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/linqtosqlclassesDataContext/Car" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63044fd4-6439-4511-84fb-edc7d94d98f2" absoluteBounds="0.765, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1838261f-c048-450d-9068-8c257756c5ce" absoluteBounds="3.25, 2.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/linqtosqlclassesDataContext/Equipment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a65b55f-c9e1-432f-9ffc-f9cbc41be936" absoluteBounds="3.265, 2.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 3.09699625651042); (2.75 : 3.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linqtosqlclassesDataContext/Equipment/Equipment_Car" />
+      <nodes>
+        <classShapeMoniker Id="1838261f-c048-450d-9068-8c257756c5ce" />
+        <classShapeMoniker Id="7b4bc29c-8582-4231-b563-2e5c36345ba0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

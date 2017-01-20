@@ -33,13 +33,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NameElement = new System.Windows.Forms.TextBox();
-            this.carsDataSet = new CarRental.CarsDataSet();
             this.equipmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.equipmentsTableAdapter = new CarRental.CarsDataSetTableAdapters.EquipmentsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,20 +82,6 @@
             this.NameElement.Size = new System.Drawing.Size(151, 20);
             this.NameElement.TabIndex = 12;
             // 
-            // carsDataSet
-            // 
-            this.carsDataSet.DataSetName = "CarsDataSet";
-            this.carsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // equipmentsBindingSource
-            // 
-            this.equipmentsBindingSource.DataMember = "Equipments";
-            this.equipmentsBindingSource.DataSource = this.carsDataSet;
-            // 
-            // equipmentsTableAdapter
-            // 
-            this.equipmentsTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -125,7 +108,6 @@
             this.Text = "NewEquipment";
             this.Load += new System.EventHandler(this.NewEquipment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,9 +119,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox NameElement;
-        private CarsDataSet carsDataSet;
         private System.Windows.Forms.BindingSource equipmentsBindingSource;
-        private CarsDataSetTableAdapters.EquipmentsTableAdapter equipmentsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
