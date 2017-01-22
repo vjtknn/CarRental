@@ -28,7 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.carsDataSet = new CarRental.CarsDataSet();
+            this.carsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carsTableAdapter = new CarRental.CarsDataSetTableAdapters.CarsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -41,14 +52,81 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Wypożycz samochód:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(172, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Marka";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(172, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Model";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(172, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Liczba siedzień";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(172, 284);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Wyposarzenia dodatkow";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(231, 129);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // carsDataSet
+            // 
+            this.carsDataSet.DataSetName = "CarsDataSet";
+            this.carsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carsBindingSource
+            // 
+            this.carsBindingSource.DataMember = "Cars";
+            this.carsBindingSource.DataSource = this.carsDataSet;
+            // 
+            // carsTableAdapter
+            // 
+            this.carsTableAdapter.ClearBeforeFill = true;
+            // 
             // RentACar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 481);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RentACar";
             this.Text = "RentACar";
+            this.Load += new System.EventHandler(this.RentACar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -57,5 +135,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private CarsDataSet carsDataSet;
+        private System.Windows.Forms.BindingSource carsBindingSource;
+        private CarsDataSetTableAdapters.CarsTableAdapter carsTableAdapter;
     }
 }

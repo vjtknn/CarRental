@@ -19,7 +19,7 @@ namespace CarRental
             InitializeComponent();
             dev_insert_equipment();
             get_all_records();
-            
+
         }
 
         //Developer Tools!
@@ -46,9 +46,10 @@ namespace CarRental
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
-            try {
+
+
+            try
+            {
                 db = new linqtosqlclassesDataContext();
 
                 Car newCarsCar = new Car();
@@ -59,8 +60,10 @@ namespace CarRental
                 db.Cars.InsertOnSubmit(newCarsCar);
                 db.SubmitChanges();
 
-                
-            }catch{
+
+            }
+            catch
+            {
                 MessageBox.Show("Przepraszamy, podano nieprawidłowe dane");
             }
             get_all_records();
@@ -85,7 +88,7 @@ namespace CarRental
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)

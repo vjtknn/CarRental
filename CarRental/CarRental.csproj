@@ -98,7 +98,6 @@
     <Compile Include="RentACar.Designer.cs">
       <DependentUpon>RentACar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
