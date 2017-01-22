@@ -28,6 +28,11 @@ namespace CarRental
             db = new linqtosqlclassesDataContext();
             comboBox1.DataSource = (from d in db.Cars select d.Brand).ToList();
             comboBox1.DisplayMember = "Brand";
+            comboBox2.DataSource = (from c in db.Cars select c.Model).ToList();
+            comboBox2.DisplayMember = "Model";
+            comboBox3.DataSource = (from c in db.Cars select c.Seats).ToList();
+            comboBox3.DisplayMember = "Model";
+
 
         }
 

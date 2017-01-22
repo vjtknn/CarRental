@@ -67,7 +67,10 @@ namespace CarRental
                 MessageBox.Show("Przepraszamy, podano nieprawidłowe dane");
             }
             get_all_records();
-
+            Brand.Clear();
+            Model.Clear();
+            Seats.Clear();
+            
         }
 
         private void Brand_TextChanged(object sender, EventArgs e)
