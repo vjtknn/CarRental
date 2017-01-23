@@ -67,6 +67,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Klienci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Klienci.Designer.cs">
+      <DependentUpon>Klienci.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <None Include="linqtosqlclasses.dbml.layout">
       <DependentUpon>linqtosqlclasses.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Klienci.resx">
+      <DependentUpon>Klienci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewCar.resx">
       <DependentUpon>NewCar.cs</DependentUpon>
     </EmbeddedResource>

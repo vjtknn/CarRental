@@ -28,17 +28,20 @@ namespace CarRental
         {
             try
             {
+                db = new linqtosqlclassesDataContext();
+
                 Customer newCustomer = new Customer();
-                newCustomer.Firts_name = first_name.ToString();
-                newCustomer.Last_name = last_name.ToString();
+                newCustomer.Firts_name = first_name.Text;
+                newCustomer.Last_name = last_name.Text;
                 db.Customers.InsertOnSubmit(newCustomer);
                 db.SubmitChanges();
             }
-            catch (Exception exception)
+            catch 
             {
                 MessageBox.Show("Przepraszamy, podano nieprawidłowe dane");
 
             }
+            MessageBox.Show("Dodano klienta");
             first_name.Clear();
             last_name.Clear();
 
