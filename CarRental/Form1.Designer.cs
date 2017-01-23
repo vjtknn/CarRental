@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -44,6 +45,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -175,6 +177,7 @@
             this.button6.TabIndex = 10;
             this.button6.Text = "Dodaj ";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // pictureBox4
             // 
@@ -193,6 +196,12 @@
             this.button7.TabIndex = 14;
             this.button7.Text = "Stan ";
             this.button7.UseVisualStyleBackColor = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Form1
             // 
@@ -242,6 +251,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

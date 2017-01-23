@@ -73,6 +73,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCustomer.Designer.cs">
+      <DependentUpon>NewCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="linqtosqlclasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,6 +123,9 @@
     </None>
     <EmbeddedResource Include="NewCar.resx">
       <DependentUpon>NewCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCustomer.resx">
+      <DependentUpon>NewCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewEquipment.resx">
       <DependentUpon>NewEquipment.cs</DependentUpon>
