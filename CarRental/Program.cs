@@ -6,6 +6,17 @@ using System.Windows.Forms;
 
 namespace CarRental
 {
+
+
+    public enum ColorE
+    {
+        Black = 0,
+        White = 1,
+        Red = 2,
+        Blue = 3,
+        Yellow = 4,
+        Green = 5
+    };
     static class Program
     {
         /// <summary>

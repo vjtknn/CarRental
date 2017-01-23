@@ -36,15 +36,15 @@ namespace CarRental
     partial void InsertEquipment(Equipment instance);
     partial void UpdateEquipment(Equipment instance);
     partial void DeleteEquipment(Equipment instance);
-    partial void InsertCar(Car instance);
-    partial void UpdateCar(Car instance);
-    partial void DeleteCar(Car instance);
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
     partial void InsertCars_Customer(Cars_Customer instance);
     partial void UpdateCars_Customer(Cars_Customer instance);
     partial void DeleteCars_Customer(Cars_Customer instance);
+    partial void InsertCar(Car instance);
+    partial void UpdateCar(Car instance);
+    partial void DeleteCar(Car instance);
     #endregion
 		
 		public linqtosqlclassesDataContext() : 
@@ -93,14 +93,6 @@ namespace CarRental
 			}
 		}
 		
-		public System.Data.Linq.Table<Car> Cars
-		{
-			get
-			{
-				return this.GetTable<Car>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Customer> Customers
 		{
 			get
@@ -116,6 +108,14 @@ namespace CarRental
 				return this.GetTable<Cars_Customer>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Car> Cars
+		{
+			get
+			{
+				return this.GetTable<Car>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cars_Eqipments")]
@@ -129,8 +129,6 @@ namespace CarRental
 		private System.Nullable<int> _Cars_id;
 		
 		private System.Nullable<int> _Equipments_id;
-		
-		private EntitySet<Cars_Customer> _Cars_Customers;
 		
 		private EntityRef<Equipment> _Equipment;
 		
@@ -150,7 +148,6 @@ namespace CarRental
 		
 		public Cars_Eqipment()
 		{
-			this._Cars_Customers = new EntitySet<Cars_Customer>(new Action<Cars_Customer>(this.attach_Cars_Customers), new Action<Cars_Customer>(this.detach_Cars_Customers));
 			this._Equipment = default(EntityRef<Equipment>);
 			this._Car = default(EntityRef<Car>);
 			OnCreated();
@@ -224,19 +221,6 @@ namespace CarRental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cars_Eqipment_Cars_Customer", Storage="_Cars_Customers", ThisKey="Id", OtherKey="Cars_Eqipment")]
-		public EntitySet<Cars_Customer> Cars_Customers
-		{
-			get
-			{
-				return this._Cars_Customers;
-			}
-			set
-			{
-				this._Cars_Customers.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Equipment_Cars_Eqipment", Storage="_Equipment", ThisKey="Equipments_id", OtherKey="Id", IsForeignKey=true)]
 		public Equipment Equipment
 		{
@@ -271,7 +255,7 @@ namespace CarRental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Car_Cars_Eqipment", Storage="_Car", ThisKey="Cars_id", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Car1_Cars_Eqipment", Storage="_Car", ThisKey="Cars_id", OtherKey="Id", IsForeignKey=true)]
 		public Car Car
 		{
 			get
@@ -323,18 +307,6 @@ namespace CarRental
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Cars_Customers(Cars_Customer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cars_Eqipment1 = this;
-		}
-		
-		private void detach_Cars_Customers(Cars_Customer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cars_Eqipment1 = null;
 		}
 	}
 	
@@ -449,168 +421,6 @@ namespace CarRental
 		{
 			this.SendPropertyChanging();
 			entity.Equipment = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cars")]
-	public partial class Car : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Brand;
-		
-		private string _Model;
-		
-		private System.Nullable<int> _Seats;
-		
-		private EntitySet<Cars_Eqipment> _Cars_Eqipments;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnBrandChanging(string value);
-    partial void OnBrandChanged();
-    partial void OnModelChanging(string value);
-    partial void OnModelChanged();
-    partial void OnSeatsChanging(System.Nullable<int> value);
-    partial void OnSeatsChanged();
-    #endregion
-		
-		public Car()
-		{
-			this._Cars_Eqipments = new EntitySet<Cars_Eqipment>(new Action<Cars_Eqipment>(this.attach_Cars_Eqipments), new Action<Cars_Eqipment>(this.detach_Cars_Eqipments));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Brand", DbType="VarChar(50)")]
-		public string Brand
-		{
-			get
-			{
-				return this._Brand;
-			}
-			set
-			{
-				if ((this._Brand != value))
-				{
-					this.OnBrandChanging(value);
-					this.SendPropertyChanging();
-					this._Brand = value;
-					this.SendPropertyChanged("Brand");
-					this.OnBrandChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Model", DbType="VarChar(50)")]
-		public string Model
-		{
-			get
-			{
-				return this._Model;
-			}
-			set
-			{
-				if ((this._Model != value))
-				{
-					this.OnModelChanging(value);
-					this.SendPropertyChanging();
-					this._Model = value;
-					this.SendPropertyChanged("Model");
-					this.OnModelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seats", DbType="Int")]
-		public System.Nullable<int> Seats
-		{
-			get
-			{
-				return this._Seats;
-			}
-			set
-			{
-				if ((this._Seats != value))
-				{
-					this.OnSeatsChanging(value);
-					this.SendPropertyChanging();
-					this._Seats = value;
-					this.SendPropertyChanged("Seats");
-					this.OnSeatsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Car_Cars_Eqipment", Storage="_Cars_Eqipments", ThisKey="Id", OtherKey="Cars_id")]
-		public EntitySet<Cars_Eqipment> Cars_Eqipments
-		{
-			get
-			{
-				return this._Cars_Eqipments;
-			}
-			set
-			{
-				this._Cars_Eqipments.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Cars_Eqipments(Cars_Eqipment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Car = this;
-		}
-		
-		private void detach_Cars_Eqipments(Cars_Eqipment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Car = null;
 		}
 	}
 	
@@ -766,7 +576,7 @@ namespace CarRental
 		
 		private EntityRef<Customer> _Customer1;
 		
-		private EntityRef<Cars_Eqipment> _Cars_Eqipment1;
+		private EntityRef<Car> _Car;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -774,8 +584,8 @@ namespace CarRental
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnCars_EqipmentChanging(System.Nullable<int> value);
-    partial void OnCars_EqipmentChanged();
+    partial void OnCar_IDChanging(System.Nullable<int> value);
+    partial void OnCar_IDChanged();
     partial void OnCustomerChanging(System.Nullable<int> value);
     partial void OnCustomerChanged();
     #endregion
@@ -783,7 +593,7 @@ namespace CarRental
 		public Cars_Customer()
 		{
 			this._Customer1 = default(EntityRef<Customer>);
-			this._Cars_Eqipment1 = default(EntityRef<Cars_Eqipment>);
+			this._Car = default(EntityRef<Car>);
 			OnCreated();
 		}
 		
@@ -807,8 +617,8 @@ namespace CarRental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cars_Eqipment", DbType="Int")]
-		public System.Nullable<int> Cars_Eqipment
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Cars_Eqipment", Storage="_Cars_Eqipment", DbType="Int")]
+		public System.Nullable<int> Car_ID
 		{
 			get
 			{
@@ -818,15 +628,11 @@ namespace CarRental
 			{
 				if ((this._Cars_Eqipment != value))
 				{
-					if (this._Cars_Eqipment1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCars_EqipmentChanging(value);
+					this.OnCar_IDChanging(value);
 					this.SendPropertyChanging();
 					this._Cars_Eqipment = value;
-					this.SendPropertyChanged("Cars_Eqipment");
-					this.OnCars_EqipmentChanged();
+					this.SendPropertyChanged("Car_ID");
+					this.OnCar_IDChanged();
 				}
 			}
 		}
@@ -889,26 +695,26 @@ namespace CarRental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cars_Eqipment_Cars_Customer", Storage="_Cars_Eqipment1", ThisKey="Cars_Eqipment", OtherKey="Id", IsForeignKey=true)]
-		public Cars_Eqipment Cars_Eqipment1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Car_Cars_Customer", Storage="_Car", ThisKey="Car_ID", OtherKey="Id", IsForeignKey=true)]
+		public Car Car
 		{
 			get
 			{
-				return this._Cars_Eqipment1.Entity;
+				return this._Car.Entity;
 			}
 			set
 			{
-				Cars_Eqipment previousValue = this._Cars_Eqipment1.Entity;
+				Car previousValue = this._Car.Entity;
 				if (((previousValue != value) 
-							|| (this._Cars_Eqipment1.HasLoadedOrAssignedValue == false)))
+							|| (this._Car.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Cars_Eqipment1.Entity = null;
+						this._Car.Entity = null;
 						previousValue.Cars_Customers.Remove(this);
 					}
-					this._Cars_Eqipment1.Entity = value;
+					this._Car.Entity = value;
 					if ((value != null))
 					{
 						value.Cars_Customers.Add(this);
@@ -918,7 +724,7 @@ namespace CarRental
 					{
 						this._Cars_Eqipment = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Cars_Eqipment1");
+					this.SendPropertyChanged("Car");
 				}
 			}
 		}
@@ -941,6 +747,244 @@ namespace CarRental
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cars")]
+	public partial class Car : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Brand;
+		
+		private string _Model;
+		
+		private System.Nullable<int> _Seats;
+		
+		private System.Nullable<int> _Color;
+		
+		private System.Nullable<int> _Price;
+		
+		private EntitySet<Cars_Eqipment> _Cars_Eqipments;
+		
+		private EntitySet<Cars_Customer> _Cars_Customers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBrandChanging(string value);
+    partial void OnBrandChanged();
+    partial void OnModelChanging(string value);
+    partial void OnModelChanged();
+    partial void OnSeatsChanging(System.Nullable<int> value);
+    partial void OnSeatsChanged();
+    partial void OnColorChanging(System.Nullable<int> value);
+    partial void OnColorChanged();
+    partial void OnPriceChanging(System.Nullable<int> value);
+    partial void OnPriceChanged();
+    #endregion
+		
+		public Car()
+		{
+			this._Cars_Eqipments = new EntitySet<Cars_Eqipment>(new Action<Cars_Eqipment>(this.attach_Cars_Eqipments), new Action<Cars_Eqipment>(this.detach_Cars_Eqipments));
+			this._Cars_Customers = new EntitySet<Cars_Customer>(new Action<Cars_Customer>(this.attach_Cars_Customers), new Action<Cars_Customer>(this.detach_Cars_Customers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Brand", DbType="VarChar(50)")]
+		public string Brand
+		{
+			get
+			{
+				return this._Brand;
+			}
+			set
+			{
+				if ((this._Brand != value))
+				{
+					this.OnBrandChanging(value);
+					this.SendPropertyChanging();
+					this._Brand = value;
+					this.SendPropertyChanged("Brand");
+					this.OnBrandChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Model", DbType="VarChar(50)")]
+		public string Model
+		{
+			get
+			{
+				return this._Model;
+			}
+			set
+			{
+				if ((this._Model != value))
+				{
+					this.OnModelChanging(value);
+					this.SendPropertyChanging();
+					this._Model = value;
+					this.SendPropertyChanged("Model");
+					this.OnModelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seats", DbType="Int")]
+		public System.Nullable<int> Seats
+		{
+			get
+			{
+				return this._Seats;
+			}
+			set
+			{
+				if ((this._Seats != value))
+				{
+					this.OnSeatsChanging(value);
+					this.SendPropertyChanging();
+					this._Seats = value;
+					this.SendPropertyChanged("Seats");
+					this.OnSeatsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Color", DbType="Int")]
+		public System.Nullable<int> Color
+		{
+			get
+			{
+				return this._Color;
+			}
+			set
+			{
+				if ((this._Color != value))
+				{
+					this.OnColorChanging(value);
+					this.SendPropertyChanging();
+					this._Color = value;
+					this.SendPropertyChanged("Color");
+					this.OnColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
+		public System.Nullable<int> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Car1_Cars_Eqipment", Storage="_Cars_Eqipments", ThisKey="Id", OtherKey="Cars_id")]
+		public EntitySet<Cars_Eqipment> Cars_Eqipments
+		{
+			get
+			{
+				return this._Cars_Eqipments;
+			}
+			set
+			{
+				this._Cars_Eqipments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Car_Cars_Customer", Storage="_Cars_Customers", ThisKey="Id", OtherKey="Car_ID")]
+		public EntitySet<Cars_Customer> Cars_Customers
+		{
+			get
+			{
+				return this._Cars_Customers;
+			}
+			set
+			{
+				this._Cars_Customers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Cars_Eqipments(Cars_Eqipment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Car = this;
+		}
+		
+		private void detach_Cars_Eqipments(Cars_Eqipment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Car = null;
+		}
+		
+		private void attach_Cars_Customers(Cars_Customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Car = this;
+		}
+		
+		private void detach_Cars_Customers(Cars_Customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Car = null;
 		}
 	}
 }

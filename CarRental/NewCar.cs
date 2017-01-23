@@ -19,7 +19,7 @@ namespace CarRental
             InitializeComponent();
             dev_insert_equipment();
             get_all_records();
-
+            ColorCB.DataSource = Enum.GetValues(typeof(ColorE));
         }
 
         //Developer Tools!
@@ -56,6 +56,8 @@ namespace CarRental
                 newCarsCar.Brand = Brand.Text;
                 newCarsCar.Model = Model.Text;
                 newCarsCar.Seats = Int32.Parse(Seats.Text);
+                newCarsCar.Color = int.Parse(ColorCB.SelectedIndex.ToString());
+                newCarsCar.Price = int.Parse(Price.Text);
 
                 db.Cars.InsertOnSubmit(newCarsCar);
                 db.SubmitChanges();

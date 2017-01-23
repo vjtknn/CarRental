@@ -49,6 +49,10 @@
             this.addedEquipments = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Price = new System.Windows.Forms.TextBox();
+            this.ColorCB = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).BeginInit();
@@ -68,7 +72,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(433, 228);
             this.dataGridView1.TabIndex = 0;
-           // this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
@@ -179,7 +182,6 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Dodaj wyposażenie do samochodu";
             this.button2.UseVisualStyleBackColor = true;
-           // this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addedEquipments
             // 
@@ -207,11 +209,48 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Samochody w bazie:";
             // 
+            // Price
+            // 
+            this.Price.Location = new System.Drawing.Point(87, 468);
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(100, 20);
+            this.Price.TabIndex = 14;
+            // 
+            // ColorCB
+            // 
+            this.ColorCB.FormattingEnabled = true;
+            this.ColorCB.Location = new System.Drawing.Point(87, 433);
+            this.ColorCB.Name = "ColorCB";
+            this.ColorCB.Size = new System.Drawing.Size(100, 21);
+            this.ColorCB.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 433);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Kolor:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 468);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Cena za dzień";
+            // 
             // NewCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 487);
+            this.ClientSize = new System.Drawing.Size(811, 519);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.ColorCB);
+            this.Controls.Add(this.Price);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.addedEquipments);
@@ -268,5 +307,9 @@
         private System.Windows.Forms.ListBox addedEquipments;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Price;
+        private System.Windows.Forms.ComboBox ColorCB;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
