@@ -44,7 +44,6 @@
             this.carsDataSet = new CarRental.CarsDataSet();
             this.equipmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.equipmentsTableAdapter = new CarRental.CarsDataSetTableAdapters.EquipmentsTableAdapter();
-            this.carsEqipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.addedEquipments = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.equipments_list = new System.Windows.Forms.ComboBox();
+            this.carsEqipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).BeginInit();
@@ -174,10 +174,6 @@
             // 
             this.equipmentsTableAdapter.ClearBeforeFill = true;
             // 
-            // carsEqipmentBindingSource
-            // 
-            this.carsEqipmentBindingSource.DataSource = typeof(CarRental.Cars_Equipment);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(214, 308);
@@ -258,11 +254,15 @@
             this.equipments_list.Size = new System.Drawing.Size(100, 21);
             this.equipments_list.TabIndex = 18;
             // 
+            // carsEqipmentBindingSource
+            // 
+            this.carsEqipmentBindingSource.DataSource = typeof(CarRental.Cars_Equipment);
+            // 
             // NewCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 519);
+            this.ClientSize = new System.Drawing.Size(741, 507);
             this.Controls.Add(this.equipments_list);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
