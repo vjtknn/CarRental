@@ -172,7 +172,7 @@
             // 
             // carsEqipmentBindingSource
             // 
-            this.carsEqipmentBindingSource.DataSource = typeof(CarRental.Cars_Eqipment);
+            this.carsEqipmentBindingSource.DataSource = typeof(CarRental.Cars_Equipment);
             // 
             // button2
             // 
