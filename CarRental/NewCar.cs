@@ -14,11 +14,13 @@ namespace CarRental
     {
         linqtosqlclassesDataContext db;
         public List<object> allEquipments = new List<object>();
+
         public NewCar()
         {
             InitializeComponent();
             dev_insert_equipment();
             get_all_records();
+            get_all_equipments_to_combobox();
             ColorCB.DataSource = Enum.GetValues(typeof(ColorE));
         }
 
@@ -36,6 +38,7 @@ namespace CarRental
             db.Equipments.InsertOnSubmit(equipment2);
             db.SubmitChanges();
         }
+
         //End Developer Tools!!
 
         private void get_all_records()
@@ -44,10 +47,21 @@ namespace CarRental
             dataGridView1.DataSource = db.Cars;
             dataGridView2.DataSource = db.Equipments;
         }
+
+        private void get_all_equipments_to_combobox()
+        {
+            db = new linqtosqlclassesDataContext();
+
+            equipments_list.DisplayMember = "Value";
+            equipments_list.ValueMember = "Id";
+            foreach (var x in db.Equipments)
+            {
+                equipments_list.Items.Add(new { Id = x.Id, Value = x.Name });
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 db = new linqtosqlclassesDataContext();
@@ -61,8 +75,6 @@ namespace CarRental
 
                 db.Cars.InsertOnSubmit(newCarsCar);
                 db.SubmitChanges();
-
-
             }
             catch
             {
@@ -72,28 +84,22 @@ namespace CarRental
             Brand.Clear();
             Model.Clear();
             Seats.Clear();
-            
         }
 
         private void Brand_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void Seats_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void NewCar_Load(object sender, EventArgs e)
         {
-
-
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -101,12 +107,26 @@ namespace CarRental
             allEquipments.Add(dataGridView2.CurrentRow);
             MessageBox.Show(addedEquipments.Text);
             addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
-
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
+        }
 
+        private void ColorCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addedEquipments.DisplayMember = "Value";
+            addedEquipments.ValueMember = "Id";
+            addedEquipments.Items.Add(new { Id = (equipments_list.SelectedItem as dynamic).Id, Value = (equipments_list.SelectedItem as dynamic).Value });
+        }
+
+        private void addedEquipments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show((addedEquipments.SelectedItem as dynamic).Id.ToString());
         }
     }
 }

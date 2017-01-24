@@ -53,6 +53,7 @@
             this.ColorCB = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.equipments_list = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).BeginInit();
@@ -182,14 +183,16 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Dodaj wyposażenie do samochodu";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addedEquipments
             // 
             this.addedEquipments.FormattingEnabled = true;
-            this.addedEquipments.Location = new System.Drawing.Point(365, 285);
+            this.addedEquipments.Location = new System.Drawing.Point(471, 284);
             this.addedEquipments.Name = "addedEquipments";
             this.addedEquipments.Size = new System.Drawing.Size(145, 69);
             this.addedEquipments.TabIndex = 11;
+            this.addedEquipments.SelectedIndexChanged += new System.EventHandler(this.addedEquipments_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -223,6 +226,7 @@
             this.ColorCB.Name = "ColorCB";
             this.ColorCB.Size = new System.Drawing.Size(100, 21);
             this.ColorCB.TabIndex = 15;
+            this.ColorCB.SelectedIndexChanged += new System.EventHandler(this.ColorCB_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -242,11 +246,20 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Cena za dzień";
             // 
+            // equipments_list
+            // 
+            this.equipments_list.FormattingEnabled = true;
+            this.equipments_list.Location = new System.Drawing.Point(365, 284);
+            this.equipments_list.Name = "equipments_list";
+            this.equipments_list.Size = new System.Drawing.Size(100, 21);
+            this.equipments_list.TabIndex = 18;
+            // 
             // NewCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 519);
+            this.Controls.Add(this.equipments_list);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ColorCB);
@@ -311,5 +324,6 @@
         private System.Windows.Forms.ComboBox ColorCB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox equipments_list;
     }
 }
