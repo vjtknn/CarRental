@@ -45,7 +45,7 @@ namespace CarRental
         {
             db = new linqtosqlclassesDataContext();
             dataGridView1.DataSource = db.Cars;
-            dataGridView2.DataSource = db.Equipments;
+            dataGridView2.DataSource = db.Cars_Equipments;
         }
 
         private void get_all_equipments_to_combobox()
@@ -56,7 +56,7 @@ namespace CarRental
             equipments_list.ValueMember = "Id";
             foreach (var x in db.Equipments)
             {
-                equipments_list.Items.Add(new { Id = x.Id, Value = x.Name });
+                equipments_list.Items.Add(new {Id = x.Id, Value = x.Name});
             }
         }
 
@@ -75,6 +75,18 @@ namespace CarRental
 
                 db.Cars.InsertOnSubmit(newCarsCar);
                 db.SubmitChanges();
+                if (addedEquipments.Items.Count != 0)
+                {
+                    foreach (var items in addedEquipments.Items)
+                    {
+                        var i = (items as dynamic).Id;
+                        Cars_Equipment newCarsEquipment = new Cars_Equipment();
+                        newCarsEquipment.Cars_id = newCarsCar.Id;
+                        newCarsEquipment.Equipments_id = i;
+                        db.Cars_Equipments.InsertOnSubmit(newCarsEquipment);
+                        db.SubmitChanges();
+                    }
+                }
             }
             catch
             {
@@ -121,7 +133,12 @@ namespace CarRental
         {
             addedEquipments.DisplayMember = "Value";
             addedEquipments.ValueMember = "Id";
-            addedEquipments.Items.Add(new { Id = (equipments_list.SelectedItem as dynamic).Id, Value = (equipments_list.SelectedItem as dynamic).Value });
+            addedEquipments.Items.Add(
+                new
+                {
+                    Id = (equipments_list.SelectedItem as dynamic).Id,
+                    Value = (equipments_list.SelectedItem as dynamic).Value
+                });
         }
 
         private void addedEquipments_SelectedIndexChanged(object sender, EventArgs e)
