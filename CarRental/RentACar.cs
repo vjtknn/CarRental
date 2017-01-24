@@ -23,14 +23,16 @@ namespace CarRental
         public string modell { get; set; }
         public int seats { get; set; }
         public string color { get; set; }
-
+        public DateTime StartDate;
+        public DateTime EndDate;
+        public int cena { get; set; }
+       
 
 
         public RentACar()
         {
             InitializeComponent();
             Load_car();
-
         }
 
 
@@ -41,7 +43,7 @@ namespace CarRental
             comboBox1.DisplayMember = "Brand";
             comboBox2.DataSource = null;
             comboBox3.DataSource = null;
-            comboBox5.DataSource = (from c in db.Cars select c.Color).ToList();
+            comboBox5.DataSource = null;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,7 +64,7 @@ namespace CarRental
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +81,26 @@ namespace CarRental
             comboBox5.DataSource = (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select  c.Color).ToList();
             comboBox5.DisplayMember = "Color";
             comboBox5.Refresh();
+        }
+
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            StartDate = dateTimePicker1.Value;
+           
+        }
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            EndDate = dateTimePicker2.Value;
+        }
+      
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TimeSpan ts = (StartDate - EndDate);
+            int totaltime = Math.Abs(ts.Days);
+            int? cena = ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price).SingleOrDefault());
+            label9.Text = (cena * totaltime).ToString();
+            label9.Refresh();
         }
     }
 }
