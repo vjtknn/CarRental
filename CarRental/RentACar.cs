@@ -102,5 +102,13 @@ namespace CarRental
             label9.Text = (cena * totaltime).ToString();
             label9.Refresh();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            db = new linqtosqlclassesDataContext();
+            Cars_Customer zamowienie = new Cars_Customer();
+            zamowienie.Car_ID =
+                (from d in db.Cars where (d.Brand == marka && d.Model == modell && d.Seats == seats) select d.Id).FirstOrDefault();
+        }
     }
 }
