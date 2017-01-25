@@ -176,9 +176,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(214, 308);
+            this.button2.Location = new System.Drawing.Point(230, 311);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 46);
+            this.button2.Size = new System.Drawing.Size(235, 42);
             this.button2.TabIndex = 10;
             this.button2.Text = "Dodaj wyposażenie do samochodu";
             this.button2.UseVisualStyleBackColor = true;
