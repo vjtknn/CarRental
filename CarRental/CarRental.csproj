@@ -114,8 +114,17 @@
     <Compile Include="RentACar.Designer.cs">
       <DependentUpon>RentACar.cs</DependentUpon>
     </Compile>
+    <Compile Include="StateCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StateCars.Designer.cs">
+      <DependentUpon>StateCars.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateCars.resx">
+      <DependentUpon>StateCars.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="CarsDataSet.xsc">
       <DependentUpon>CarsDataSet.xsd</DependentUpon>
