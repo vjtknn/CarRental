@@ -13,6 +13,7 @@ using System.Data.Common;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Configuration;
+using System.IO;
 
 namespace CarRental
 {
@@ -26,7 +27,11 @@ namespace CarRental
         public DateTime StartDate;
         public DateTime EndDate;
         public int cena { get; set; }
-       
+        public string imie { get; set; }
+        public string nazwisko { get; set; }
+
+
+
 
 
         public RentACar()
@@ -53,7 +58,7 @@ namespace CarRental
             comboBox2.DataSource = (from c in db.Cars where c.Brand == marka select c.Model).ToList();
             comboBox2.DisplayMember = "Model";
             comboBox2.Refresh();
-         }
+        }
 
         private void RentACar_Load(object sender, EventArgs e)
         {
@@ -70,7 +75,8 @@ namespace CarRental
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             modell = comboBox2.SelectedItem.ToString();
-            comboBox3.DataSource = (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
+            comboBox3.DataSource =
+                (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
             comboBox3.DisplayMember = "Seats";
             comboBox3.Refresh();
         }
@@ -78,7 +84,9 @@ namespace CarRental
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             seats = int.Parse(comboBox3.SelectedItem.ToString());
-            comboBox5.DataSource = (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select  c.Color).ToList();
+            comboBox5.DataSource =
+                (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
+                .ToList();
             comboBox5.DisplayMember = "Color";
             comboBox5.Refresh();
         }
@@ -87,28 +95,34 @@ namespace CarRental
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             StartDate = dateTimePicker1.Value;
-           
+
         }
+
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             EndDate = dateTimePicker2.Value;
         }
-      
+
         private void button1_Click(object sender, EventArgs e)
         {
             TimeSpan ts = (StartDate - EndDate);
             int totaltime = Math.Abs(ts.Days);
-            int? cena = ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price).SingleOrDefault());
+            int? cena =
+            ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price)
+                .SingleOrDefault());
             label9.Text = (cena * totaltime).ToString();
             label9.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            db = new linqtosqlclassesDataContext();
-            Cars_Customer zamowienie = new Cars_Customer();
-            zamowienie.Car_ID =
-                (from d in db.Cars where (d.Brand == marka && d.Model == modell && d.Seats == seats) select d.Id).FirstOrDefault();
+            string filepath = @"C:\test.txt";
+            using (StreamWriter zapisz = new StreamWriter(filepath))
+            {
+                zapisz.WriteLine($"Marka: {marka} Model: {modell} Kolor: {color} Liczba siedzeń: {seats} ");
+            }
+
+
         }
     }
 }
