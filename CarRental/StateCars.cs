@@ -36,10 +36,15 @@ namespace CarRental
             {
                 comboBox1.Items.Add(new { Id = x.Id, Value = x.Brand});
             }
+        
+        }
+        private void load_Model(int id)
+        {
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            load_Model
         }
     }
 }
