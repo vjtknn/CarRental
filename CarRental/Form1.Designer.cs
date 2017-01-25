@@ -43,8 +43,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -177,20 +177,21 @@
             this.pictureBox4.TabIndex = 11;
             this.pictureBox4.TabStop = false;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(20, 404);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 23);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Stan ";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(12, 399);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(112, 23);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "Stan";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
@@ -212,7 +213,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Wypożyczalnia samochodów";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -237,8 +238,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button button7;
     }
 }
 

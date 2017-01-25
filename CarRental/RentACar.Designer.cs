@@ -50,8 +50,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -146,7 +145,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(172, 288);
+            this.label7.Location = new System.Drawing.Point(172, 327);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 13);
             this.label7.TabIndex = 10;
@@ -164,7 +163,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(257, 255);
+            this.dateTimePicker1.Location = new System.Drawing.Point(257, 292);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
             this.dateTimePicker1.TabIndex = 12;
@@ -173,7 +172,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(257, 281);
+            this.dateTimePicker2.Location = new System.Drawing.Point(257, 320);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(121, 20);
             this.dateTimePicker2.TabIndex = 13;
@@ -182,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(172, 261);
+            this.label5.Location = new System.Drawing.Point(172, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 13);
             this.label5.TabIndex = 14;
@@ -191,7 +190,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(172, 317);
+            this.label8.Location = new System.Drawing.Point(172, 361);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 15;
@@ -200,7 +199,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(254, 317);
+            this.label9.Location = new System.Drawing.Point(254, 361);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 16;
@@ -208,7 +207,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(396, 317);
+            this.button1.Location = new System.Drawing.Point(394, 351);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
@@ -218,7 +217,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(175, 404);
+            this.button2.Location = new System.Drawing.Point(161, 404);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
@@ -229,37 +228,27 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(106, 341);
+            this.label10.Location = new System.Drawing.Point(172, 248);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 13);
             this.label10.TabIndex = 19;
             this.label10.Text = "Klient";
             // 
-            // label11
+            // comboBox4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(172, 368);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 13);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Imię";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(172, 341);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 13);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "Nazwisko";
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(257, 240);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(121, 21);
+            this.comboBox4.TabIndex = 20;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // RentACar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 481);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -310,7 +299,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }
