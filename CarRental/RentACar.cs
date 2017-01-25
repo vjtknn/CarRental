@@ -13,6 +13,7 @@ using System.Data.Common;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Configuration;
+using System.IO;
 
 namespace CarRental
 {
@@ -22,10 +23,12 @@ namespace CarRental
         public string marka { get; set; }
         public string modell { get; set; }
         public int seats { get; set; }
-        public string color { get; set; }
+        public string kolor { get; set; }
         public DateTime StartDate;
         public DateTime EndDate;
         public int cena { get; set; }
+        public string klient { get; set; }
+
        
 
 
@@ -39,11 +42,23 @@ namespace CarRental
         public void Load_car()
         {
             db = new linqtosqlclassesDataContext();
-            comboBox1.DataSource = (from d in db.Cars select d.Brand).ToList();
+            comboBox1.DataSource = (from d in db.Cars select d.Brand).Distinct();
             comboBox1.DisplayMember = "Brand";
             comboBox2.DataSource = null;
             comboBox3.DataSource = null;
             comboBox5.DataSource = null;
+            listaklientow();
+        }
+
+        public void listaklientow()
+        {
+            db = new linqtosqlclassesDataContext();
+            comboBox4.DisplayMember = "Value";
+            comboBox4.ValueMember = "Id";
+            foreach(var c in db.Customers)
+            {
+                comboBox4.Items.Add(new { Id = c.Id, Value = c.Last_name + " " + c.Firts_name });
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,7 +79,7 @@ namespace CarRental
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            kolor = comboBox5.SelectedItem.ToString();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,10 +120,24 @@ namespace CarRental
 
         private void button2_Click(object sender, EventArgs e)
         {
-            db = new linqtosqlclassesDataContext();
-            Cars_Customer zamowienie = new Cars_Customer();
-            zamowienie.Car_ID =
-                (from d in db.Cars where (d.Brand == marka && d.Model == modell && d.Seats == seats) select d.Id).FirstOrDefault();
+            string path = @"C:\Users\wwinnic1\Documents\test.txt";
+            using (StreamWriter zapisz = new StreamWriter(path))
+            {
+                zapisz.WriteLine($"Marka {marka}");
+                zapisz.WriteLine($"Model {modell}");
+                zapisz.WriteLine($"Liczba siedzeń {seats}");
+                zapisz.WriteLine($"Kolor {kolor}");
+                zapisz.WriteLine($"Klient {klient}");
+                zapisz.WriteLine($"Od {StartDate}");
+                zapisz.WriteLine($"Do {EndDate}");
+                zapisz.WriteLine($"Cena za okres {cena}");                               
+            }
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            klient = comboBox5.SelectedItem.ToString();
         }
     }
 }

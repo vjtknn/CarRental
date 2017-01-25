@@ -44,7 +44,7 @@ namespace CarRental
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_Model(comboBox1.SelectedItem.)
+            load_Model
         }
     }
 }
