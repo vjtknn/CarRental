@@ -38,13 +38,24 @@ namespace CarRental
             }
         
         }
-        private void load_Model(int id)
+        private void load_Model(string value)
         {
+            db = new linqtosqlclassesDataContext();
 
+            comboBox2.DisplayMember = "Value";
+            comboBox2.ValueMember = "Id";
+            var cities = db.Cars.GroupBy(x => x.Model).Select(y => y.First());
+            comboBox2.Items.Clear();
+            foreach (var x in cities)
+            {
+                if(x.Brand == value) { 
+                comboBox2.Items.Add(new { Id = x.Id, Value = x.Model });
+                }
+            }
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_Model
+            load_Model((comboBox1.SelectedItem as dynamic).Value.ToString());
         }
     }
 }
