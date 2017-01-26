@@ -90,7 +90,7 @@
             this.Brand.Name = "Brand";
             this.Brand.Size = new System.Drawing.Size(100, 20);
             this.Brand.TabIndex = 2;
-            this.Brand.Text = "1";
+            this.Brand.Text = "Volvo";
             this.Brand.TextChanged += new System.EventHandler(this.Brand_TextChanged);
             // 
             // label1
@@ -117,7 +117,7 @@
             this.Model.Name = "Model";
             this.Model.Size = new System.Drawing.Size(100, 20);
             this.Model.TabIndex = 4;
-            this.Model.Text = "1";
+            this.Model.Text = "V40";
             // 
             // label3
             // 
@@ -134,7 +134,7 @@
             this.Seats.Name = "Seats";
             this.Seats.Size = new System.Drawing.Size(100, 20);
             this.Seats.TabIndex = 6;
-            this.Seats.Text = "1";
+            this.Seats.Text = "5";
             this.Seats.TextChanged += new System.EventHandler(this.Seats_TextChanged);
             // 
             // dataGridView2
@@ -217,7 +217,7 @@
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(100, 20);
             this.Price.TabIndex = 14;
-            this.Price.Text = "1";
+            this.Price.Text = "20";
             // 
             // ColorCB
             // 
@@ -226,6 +226,7 @@
             this.ColorCB.Name = "ColorCB";
             this.ColorCB.Size = new System.Drawing.Size(100, 21);
             this.ColorCB.TabIndex = 15;
+            this.ColorCB.Text = "1";
             this.ColorCB.SelectedIndexChanged += new System.EventHandler(this.ColorCB_SelectedIndexChanged);
             // 
             // label7
