@@ -73,15 +73,16 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(581, 228);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 228);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button1.Location = new System.Drawing.Point(230, 433);
+            this.button1.Location = new System.Drawing.Point(285, 419);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(363, 62);
+            this.button1.Size = new System.Drawing.Size(363, 76);
             this.button1.TabIndex = 1;
             this.button1.Text = "Dodaj samochód";
             this.button1.UseVisualStyleBackColor = false;
@@ -89,7 +90,7 @@
             // 
             // Brand
             // 
-            this.Brand.Location = new System.Drawing.Point(87, 285);
+            this.Brand.Location = new System.Drawing.Point(107, 285);
             this.Brand.Name = "Brand";
             this.Brand.Size = new System.Drawing.Size(100, 20);
             this.Brand.TabIndex = 2;
@@ -99,7 +100,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 288);
+            this.label1.Location = new System.Drawing.Point(61, 288);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 3;
@@ -108,7 +109,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 340);
+            this.label2.Location = new System.Drawing.Point(62, 333);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 5;
@@ -116,7 +117,7 @@
             // 
             // Model
             // 
-            this.Model.Location = new System.Drawing.Point(87, 337);
+            this.Model.Location = new System.Drawing.Point(107, 330);
             this.Model.Name = "Model";
             this.Model.Size = new System.Drawing.Size(100, 20);
             this.Model.TabIndex = 4;
@@ -125,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 389);
+            this.label3.Location = new System.Drawing.Point(30, 378);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 7;
@@ -133,7 +134,7 @@
             // 
             // Seats
             // 
-            this.Seats.Location = new System.Drawing.Point(87, 386);
+            this.Seats.Location = new System.Drawing.Point(107, 375);
             this.Seats.Name = "Seats";
             this.Seats.Size = new System.Drawing.Size(100, 20);
             this.Seats.TabIndex = 6;
@@ -156,18 +157,18 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(471, 284);
+            this.button2.Location = new System.Drawing.Point(593, 276);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 21);
+            this.button2.Size = new System.Drawing.Size(55, 21);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Dodaj wyposażenie do samochodu";
+            this.button2.Text = "Dodaj";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addedEquipments
             // 
             this.addedEquipments.FormattingEnabled = true;
-            this.addedEquipments.Location = new System.Drawing.Point(365, 320);
+            this.addedEquipments.Location = new System.Drawing.Point(420, 309);
             this.addedEquipments.Name = "addedEquipments";
             this.addedEquipments.Size = new System.Drawing.Size(216, 82);
             this.addedEquipments.TabIndex = 11;
@@ -176,7 +177,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(239, 288);
+            this.label5.Location = new System.Drawing.Point(294, 280);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 12;
@@ -193,7 +194,7 @@
             // 
             // Price
             // 
-            this.Price.Location = new System.Drawing.Point(87, 468);
+            this.Price.Location = new System.Drawing.Point(107, 461);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(100, 20);
             this.Price.TabIndex = 14;
@@ -202,7 +203,7 @@
             // ColorCB
             // 
             this.ColorCB.FormattingEnabled = true;
-            this.ColorCB.Location = new System.Drawing.Point(87, 433);
+            this.ColorCB.Location = new System.Drawing.Point(107, 420);
             this.ColorCB.Name = "ColorCB";
             this.ColorCB.Size = new System.Drawing.Size(100, 21);
             this.ColorCB.TabIndex = 15;
@@ -212,7 +213,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 433);
+            this.label7.Location = new System.Drawing.Point(67, 423);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 16;
@@ -221,18 +222,18 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 468);
+            this.label8.Location = new System.Drawing.Point(24, 464);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.Size = new System.Drawing.Size(77, 13);
             this.label8.TabIndex = 17;
-            this.label8.Text = "Cena za dzień";
+            this.label8.Text = "Cena za dzień:";
             // 
             // equipments_list
             // 
             this.equipments_list.FormattingEnabled = true;
-            this.equipments_list.Location = new System.Drawing.Point(365, 284);
+            this.equipments_list.Location = new System.Drawing.Point(420, 276);
             this.equipments_list.Name = "equipments_list";
-            this.equipments_list.Size = new System.Drawing.Size(100, 21);
+            this.equipments_list.Size = new System.Drawing.Size(167, 21);
             this.equipments_list.TabIndex = 18;
             this.equipments_list.SelectedIndexChanged += new System.EventHandler(this.equipments_list_SelectedIndexChanged);
             // 
@@ -243,7 +244,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(245, 320);
+            this.label4.Location = new System.Drawing.Point(300, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 19;
@@ -252,16 +253,16 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox1.Location = new System.Drawing.Point(230, 311);
+            this.pictureBox1.Location = new System.Drawing.Point(285, 303);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(363, 99);
+            this.pictureBox1.Size = new System.Drawing.Size(363, 95);
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox2.Location = new System.Drawing.Point(-8, 262);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 262);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(232, 253);
             this.pictureBox2.TabIndex = 21;
@@ -271,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 507);
+            this.ClientSize = new System.Drawing.Size(658, 507);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.equipments_list);
             this.Controls.Add(this.label8);

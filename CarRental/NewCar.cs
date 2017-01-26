@@ -108,18 +108,19 @@ namespace CarRental
 
         private void NewCar_Load(object sender, EventArgs e)
         {
+          
         }
 
-//        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-//        {
-//        }
-//
-//        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-//        {
-//            allEquipments.Add(dataGridView2.CurrentRow);
-//            MessageBox.Show(addedEquipments.Text);
-//            addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
-//        }
+        //        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //        {
+        //        }
+        //
+        //        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        //        {
+        //            allEquipments.Add(dataGridView2.CurrentRow);
+        //            MessageBox.Show(addedEquipments.Text);
+        //            addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
+        //        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -147,6 +148,11 @@ namespace CarRental
         }
 
         private void equipments_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
