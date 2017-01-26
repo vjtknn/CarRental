@@ -9,7 +9,7 @@
   </Table>
   <Table Name="dbo.Customer" Member="Customers">
     <Type Name="Customer">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Firts_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Last_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Customer_Cars_Customer" Member="Cars_Customers" ThisKey="Id" OtherKey="Customer" Type="Cars_Customer" />

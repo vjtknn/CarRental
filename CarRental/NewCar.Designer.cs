@@ -254,6 +254,7 @@
             this.equipments_list.Name = "equipments_list";
             this.equipments_list.Size = new System.Drawing.Size(100, 21);
             this.equipments_list.TabIndex = 18;
+            this.equipments_list.SelectedIndexChanged += new System.EventHandler(this.equipments_list_SelectedIndexChanged);
             // 
             // carsEqipmentBindingSource
             // 

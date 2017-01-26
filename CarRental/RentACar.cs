@@ -29,8 +29,6 @@ namespace CarRental
         public int cena { get; set; }
         public string klient { get; set; }
 
-       
-
 
         public RentACar()
         {
@@ -55,26 +53,24 @@ namespace CarRental
             db = new linqtosqlclassesDataContext();
             comboBox4.DisplayMember = "Value";
             comboBox4.ValueMember = "Id";
-            foreach(var c in db.Customers)
+            foreach (var c in db.Customers)
             {
-                comboBox4.Items.Add(new { Id = c.Id, Value = c.Last_name + " " + c.Firts_name });
+                comboBox4.Items.Add(new {Id = c.Id, Value = c.Last_name + " " + c.Firts_name});
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             marka = comboBox1.SelectedItem.ToString();
             comboBox2.DataSource = (from c in db.Cars where c.Brand == marka select c.Model).ToList();
             comboBox2.DisplayMember = "Model";
             comboBox2.Refresh();
-         }
+        }
 
         private void RentACar_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carsDataSet.Cars' table. You can move, or remove it, as needed.
             this.carsTableAdapter.Fill(this.carsDataSet.Cars);
-
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +81,8 @@ namespace CarRental
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             modell = comboBox2.SelectedItem.ToString();
-            comboBox3.DataSource = (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
+            comboBox3.DataSource =
+                (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
             comboBox3.DisplayMember = "Seats";
             comboBox3.Refresh();
         }
@@ -93,7 +90,9 @@ namespace CarRental
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             seats = int.Parse(comboBox3.SelectedItem.ToString());
-            comboBox5.DataSource = (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select  c.Color).ToList();
+            comboBox5.DataSource =
+                (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
+                .ToList();
             comboBox5.DisplayMember = "Color";
             comboBox5.Refresh();
         }
@@ -102,18 +101,20 @@ namespace CarRental
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             StartDate = dateTimePicker1.Value;
-           
         }
+
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             EndDate = dateTimePicker2.Value;
         }
-      
+
         private void button1_Click(object sender, EventArgs e)
         {
             TimeSpan ts = (StartDate - EndDate);
             int totaltime = Math.Abs(ts.Days);
-            var cena = ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price).SingleOrDefault());
+            var cena =
+            ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price)
+                .SingleOrDefault());
             label9.Text = (cena * totaltime).ToString();
             label9.Refresh();
         }
@@ -130,14 +131,17 @@ namespace CarRental
                 zapisz.WriteLine($"Klient {klient}");
                 zapisz.WriteLine($"Od {StartDate}");
                 zapisz.WriteLine($"Do {EndDate}");
-                zapisz.WriteLine($"Cena za okres {cena}");                               
+                zapisz.WriteLine($"Cena za okres {cena}");
             }
-
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            klient = comboBox5.SelectedItem.ToString();
+            klient = comboBox4.SelectedItem.ToString();
+        }
+
+        private void RentACar_Load_1(object sender, EventArgs e)
+        {
         }
     }
 }

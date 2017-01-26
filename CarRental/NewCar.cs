@@ -145,5 +145,10 @@ namespace CarRental
         {
             MessageBox.Show((addedEquipments.SelectedItem as dynamic).Id.ToString());
         }
+
+        private void equipments_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

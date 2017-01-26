@@ -269,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RentACar";
             this.Text = "RentACar";
+            this.Load += new System.EventHandler(this.RentACar_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
             this.ResumeLayout(false);

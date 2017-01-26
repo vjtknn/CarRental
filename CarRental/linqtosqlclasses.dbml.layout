@@ -33,7 +33,7 @@
         <elementListCompartment Id="838afaca-344e-40c8-a318-7e56fa0b04e8" absoluteBounds="0.51500000000000012, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 3.09375); (10.1041666666667 : 3.09375 : JumpStart); (10.2708333333333 : 3.09375 : JumpEnd); (11.21875 : 3.09375); (11.21875 : 1.8862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 3.09375); (5.91666666666667 : 3.09375 : JumpStart); (6.08333333333333 : 3.09375 : JumpEnd); (10.1041666666667 : 3.09375 : JumpStart); (10.2708333333333 : 3.09375 : JumpEnd); (11.21875 : 3.09375); (11.21875 : 1.8862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/linqtosqlclassesDataContext/Car/Car_Cars_Customer" />
       <nodes>
         <classShapeMoniker Id="0bab3338-0efd-4b48-8142-de34bd586c50" />
