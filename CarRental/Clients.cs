@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace CarRental
 {
-    public partial class Klienci : Form
+    public partial class Clients : Form
     {
         linqtosqlclassesDataContext db;
 
-        public Klienci()
+        public Clients()
         {
             InitializeComponent();
             db = new linqtosqlclassesDataContext();
