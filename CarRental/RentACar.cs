@@ -24,7 +24,7 @@ namespace CarRental
         public string modell { get; set; }
         public int seats { get; set; }
         public string kolor { get; set; }
-        public DateTime StartDate;
+        public DateTime StartDate = DateTime.Today;
         public DateTime EndDate;
         public int cena { get; set; }
         public string klient { get; set; }
@@ -113,7 +113,7 @@ namespace CarRental
         {
             TimeSpan ts = (StartDate - EndDate);
             int totaltime = Math.Abs(ts.Days);
-            int? cena = ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price).SingleOrDefault());
+            var cena = ((from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Price).SingleOrDefault());
             label9.Text = (cena * totaltime).ToString();
             label9.Refresh();
         }
