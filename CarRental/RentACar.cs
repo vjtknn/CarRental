@@ -25,7 +25,7 @@ namespace CarRental
         public int seats { get; set; }
         public string kolor { get; set; }
         public DateTime StartDate = DateTime.Today;
-        public DateTime EndDate;
+        public DateTime EndDate = DateTime.Today;
         public int cena { get; set; }
         public string klient { get; set; }
 
