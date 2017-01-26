@@ -92,7 +92,7 @@ namespace CarRental
             int item_id = (comboBox2.SelectedItem as dynamic).Id;
             foreach (var v in (from c in db.Cars_Equipments where c.Cars_id == item_id select c.Equipments_id).ToList())
             {
-                listBox1.DataSource = (from i in db.Equipments where i.Id == v select i.Name).ToList();
+                listBox1.Items.Add((from i in db.Equipments where i.Id == v select i.Name).FirstOrDefault());
 
             }
             textBox1.Text = (from c in db.Cars where c.Id == item_id select c.Brand).FirstOrDefault();

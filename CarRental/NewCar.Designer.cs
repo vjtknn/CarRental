@@ -37,8 +37,6 @@
             this.Model = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Seats = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.carsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carsDataSet = new CarRental.CarsDataSet();
@@ -54,13 +52,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.equipments_list = new System.Windows.Forms.ComboBox();
             this.carsEqipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsEqipmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -71,17 +73,18 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(433, 228);
+            this.dataGridView1.Size = new System.Drawing.Size(581, 228);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(451, 177);
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button1.Location = new System.Drawing.Point(230, 433);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 79);
+            this.button1.Size = new System.Drawing.Size(363, 62);
             this.button1.TabIndex = 1;
             this.button1.Text = "Dodaj samochód";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Brand
@@ -137,29 +140,6 @@
             this.Seats.Text = "5";
             this.Seats.TextChanged += new System.EventHandler(this.Seats_TextChanged);
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(451, 28);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(264, 143);
-            this.dataGridView2.TabIndex = 8;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(448, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Wyposażenie w bazie:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
             // carsDataSet
             // 
             this.carsDataSet.DataSetName = "CarsDataSet";
@@ -176,9 +156,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(230, 311);
+            this.button2.Location = new System.Drawing.Point(471, 284);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 42);
+            this.button2.Size = new System.Drawing.Size(110, 21);
             this.button2.TabIndex = 10;
             this.button2.Text = "Dodaj wyposażenie do samochodu";
             this.button2.UseVisualStyleBackColor = true;
@@ -187,20 +167,20 @@
             // addedEquipments
             // 
             this.addedEquipments.FormattingEnabled = true;
-            this.addedEquipments.Location = new System.Drawing.Point(471, 284);
+            this.addedEquipments.Location = new System.Drawing.Point(365, 320);
             this.addedEquipments.Name = "addedEquipments";
-            this.addedEquipments.Size = new System.Drawing.Size(145, 69);
+            this.addedEquipments.Size = new System.Drawing.Size(216, 82);
             this.addedEquipments.TabIndex = 11;
             this.addedEquipments.SelectedIndexChanged += new System.EventHandler(this.addedEquipments_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(227, 288);
+            this.label5.Location = new System.Drawing.Point(239, 288);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 13);
+            this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Wyposażenie samochodu:";
+            this.label5.Text = "Dostępne wyposażenie:";
             // 
             // label6
             // 
@@ -260,11 +240,39 @@
             // 
             this.carsEqipmentBindingSource.DataSource = typeof(CarRental.Cars_Equipment);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(245, 320);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Wyposażenie pojazdu:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox1.Location = new System.Drawing.Point(230, 311);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(363, 99);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox2.Location = new System.Drawing.Point(-8, 262);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(232, 253);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // NewCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 507);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.equipments_list);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -274,8 +282,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.addedEquipments);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Seats);
             this.Controls.Add(this.label2);
@@ -284,16 +290,19 @@
             this.Controls.Add(this.Brand);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Name = "NewCar";
-            this.Text = "Form2";
+            this.Text = "Dodaj nowy pojazd";
             this.Load += new System.EventHandler(this.NewCar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsEqipmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,8 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seatsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipmentsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource carsEqipmentBindingSource;
         private System.Windows.Forms.BindingSource carsDataSetBindingSource;
         private System.Windows.Forms.BindingSource carsBindingSource;
@@ -331,5 +338,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox equipments_list;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
