@@ -26,7 +26,7 @@ namespace CarRental
 
         private void clear_combobox2()
         {
-            listBox1.DataSource = null;
+            listBox1.Items.Clear();
             comboBox2.SelectedIndex = -1;
             textBox1.Clear();
             textBox2.Clear();
@@ -93,7 +93,6 @@ namespace CarRental
             foreach (var v in (from c in db.Cars_Equipments where c.Cars_id == item_id select c.Equipments_id).ToList())
             {
                 listBox1.Items.Add((from i in db.Equipments where i.Id == v select i.Name).FirstOrDefault());
-
             }
             textBox1.Text = (from c in db.Cars where c.Id == item_id select c.Brand).FirstOrDefault();
             textBox2.Text = (from c in db.Cars where c.Id == item_id select c.Model).FirstOrDefault();
