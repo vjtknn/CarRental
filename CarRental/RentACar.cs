@@ -44,7 +44,7 @@ namespace CarRental
             comboBox1.DataSource = (from d in db.Cars select d.Brand).Distinct();
             comboBox1.DisplayMember = "Brand";
             comboBox2.DataSource = null;
-            comboBox3.DataSource = null;
+            comboBox4.DataSource = null;
             comboBox5.DataSource = null;
             listBox1.Items.Clear();
             listaklientow();
@@ -53,13 +53,11 @@ namespace CarRental
         public void listaklientow()
         {
             db = new linqtosqlclassesDataContext();
-            comboBox4.DisplayMember = "Value";
+            comboBox4.DisplayMember = "Names";
             comboBox4.ValueMember = "Id";
-            foreach (var c in db.Customers)
-            {
-                comboBox4.Items.Add(new {Id = c.Id, Value = c.Last_name + " " + c.Firts_name});
-            }
-        }
+            var klienci = (from c in db.Customers select new {c.Id, Names = c.Last_name + " " + c.Firts_name}).ToList();
+            comboBox4.DataSource = klienci;
+         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -69,55 +67,55 @@ namespace CarRental
 
             comboBox2.Refresh();
         }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            modell = comboBox2.SelectedItem.ToString();
+
+            comboBox3.DataSource =
+                (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
+            comboBox3.DisplayMember = "Seats";
+            comboBox3.Refresh();
+        }
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            seats = int.Parse(comboBox3.SelectedItem.ToString());
+
+            comboBox5.DataSource =
+                  (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
+                  .ToList().Cast<ColorE>().ToList();
+            comboBox5.DisplayMember = "Color";
+            comboBox5.Refresh();
+
+        }
 
         private void RentACar_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carsDataSet.Cars' table. You can move, or remove it, as needed.
             this.carsTableAdapter.Fill(this.carsDataSet.Cars);
         }
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            klient = comboBox4.SelectedItem.ToString();
 
+        }
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             kolor = comboBox5.SelectedItem.ToString();
             List<int> carId =
        (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Id).ToList();
+            List<int?> equipId =
+                (from c in db.Cars_Equipments where c.Cars_id == carId.FirstOrDefault() select c.Equipments_id).ToList();
 
-            foreach (var v in (from c in db.Cars_Equipments where c.Cars_id == carId.FirstOrDefault() select c.Equipments_id).ToList())
+            foreach (var v in equipId)
             {
                 listBox1.Items.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
                 wyposazenie.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
             }
 
         }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            modell = comboBox2.SelectedItem.ToString();
-          
-            comboBox3.DataSource =
-                (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
-            comboBox3.DisplayMember = "Seats";
-            comboBox3.Refresh();
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            seats = int.Parse(comboBox3.SelectedItem.ToString());
-
-          comboBox5.DataSource =
-                (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
-                .ToList().Cast<ColorE>().ToList();
-            comboBox5.DisplayMember = "Color";
-            comboBox5.Refresh();
-           
-        }
-
-      
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            
-
             StartDate = dateTimePicker1.Value;
         }
 
@@ -146,11 +144,11 @@ namespace CarRental
                 zapisz.WriteLine($"Model {modell}");
                 zapisz.WriteLine($"Liczba siedzeń {seats.ToString()}");
                 zapisz.WriteLine($"Kolor: {kolor}");
-                zapisz.Write("Wyposażenie: ");
+                /* zapisz.Write("Wyposażenie: ");
                 foreach (var v in wyposazenie)
                 {
-                    zapisz.Write($" {v},");
-                }
+                    zapisz.Write($" {v.ToString()},");
+                } */
                 zapisz.WriteLine($"Klient {klient}");
                 zapisz.WriteLine($"Od {StartDate}");
                 zapisz.WriteLine($"Do {EndDate}");
@@ -158,10 +156,7 @@ namespace CarRental
             }
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            klient = comboBox4.SelectedItem.ToString();
-        }
+   
 
         private void RentACar_Load_1(object sender, EventArgs e)
         {
