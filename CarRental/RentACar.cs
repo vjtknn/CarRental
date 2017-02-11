@@ -26,7 +26,7 @@ namespace CarRental
         public string kolor { get; set; }
         public DateTime StartDate = DateTime.Today;
         public DateTime EndDate = DateTime.Today;
-        public int cena { get; set; }
+        public string totalcena { get; set; }
         public string klient { get; set; }
         public List<string> wyposazenie { get; set; }
  
@@ -53,9 +53,9 @@ namespace CarRental
         public void listaklientow()
         {
             db = new linqtosqlclassesDataContext();
-            comboBox4.DisplayMember = "Names";
+            comboBox4.DisplayMember = "Name";
             comboBox4.ValueMember = "Id";
-            var klienci = (from c in db.Customers select new {c.Id, Names = c.Last_name + " " + c.Firts_name}).ToList();
+            var klienci = (from c in db.Customers select new {c.Id, Name = c.Last_name + " " + c.Firts_name}).ToList();
             comboBox4.DataSource = klienci;
          }
 
@@ -102,16 +102,15 @@ namespace CarRental
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             kolor = comboBox5.SelectedItem.ToString();
-            List<int> carId =
-       (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Id).ToList();
+             List<int> carId = (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Id).ToList();
+
             List<int?> equipId =
                 (from c in db.Cars_Equipments where c.Cars_id == carId.FirstOrDefault() select c.Equipments_id).ToList();
 
             foreach (var v in equipId)
             {
                 listBox1.Items.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
-                wyposazenie.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
-            }
+                }
 
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -137,22 +136,24 @@ namespace CarRental
 
         private void button2_Click(object sender, EventArgs e)
         {
+            totalcena = label9.Text;
             string path = @"D:\Downloads\test.txt";
             using (StreamWriter zapisz = new StreamWriter(path))
             {
-                zapisz.WriteLine($"Marka {marka}");
-                zapisz.WriteLine($"Model {modell}");
-                zapisz.WriteLine($"Liczba siedzeń {seats.ToString()}");
+                zapisz.WriteLine($"Marka: {marka}");
+                zapisz.WriteLine($"Model: {modell}");
+                zapisz.WriteLine($"Liczba siedzeń: {seats.ToString()}");
                 zapisz.WriteLine($"Kolor: {kolor}");
-                /* zapisz.Write("Wyposażenie: ");
-                foreach (var v in wyposazenie)
+                zapisz.Write("Wyposażenie: ");
+                foreach (var v in listBox1.Items)
                 {
                     zapisz.Write($" {v.ToString()},");
-                } */
-                zapisz.WriteLine($"Klient {klient}");
-                zapisz.WriteLine($"Od {StartDate}");
-                zapisz.WriteLine($"Do {EndDate}");
-                zapisz.WriteLine($"Cena za okres {cena}");
+                }
+                zapisz.WriteLine();
+                zapisz.WriteLine($"Klient: {klient}");
+                zapisz.WriteLine($"Od: {StartDate.Date}");
+                zapisz.WriteLine($"Do: {EndDate.Date}");
+                zapisz.WriteLine($"Cena za okres: {totalcena}");
             }
         }
 
