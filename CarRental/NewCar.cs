@@ -18,26 +18,26 @@ namespace CarRental
         public NewCar()
         {
             InitializeComponent();
-            dev_insert_equipment();
+//            dev_insert_equipment();
             get_all_records();
             get_all_equipments_to_combobox();
             ColorCB.DataSource = Enum.GetValues(typeof(ColorE));
         }
 
         //Developer Tools!
-        private void dev_insert_equipment()
-        {
-            db = new linqtosqlclassesDataContext();
-
-            Equipment equipment = new Equipment();
-            equipment.Name = "Klima";
-            Equipment equipment2 = new Equipment();
-            equipment2.Name = "Wspomaganie";
-
-            db.Equipments.InsertOnSubmit(equipment);
-            db.Equipments.InsertOnSubmit(equipment2);
-            db.SubmitChanges();
-        }
+//        private void dev_insert_equipment()
+//        {
+//            db = new linqtosqlclassesDataContext();
+//
+//            Equipment equipment = new Equipment();
+//            equipment.Name = "Klima";
+//            Equipment equipment2 = new Equipment();
+//            equipment2.Name = "Wspomaganie";
+//
+//            db.Equipments.InsertOnSubmit(equipment);
+//            db.Equipments.InsertOnSubmit(equipment2);
+//            db.SubmitChanges();
+//        }
 
         //End Developer Tools!!
 
@@ -45,7 +45,7 @@ namespace CarRental
         {
             db = new linqtosqlclassesDataContext();
             dataGridView1.DataSource = db.Cars;
-            dataGridView2.DataSource = db.Cars_Equipments;
+//            dataGridView2.DataSource = db.Cars_Equipments;
         }
 
         private void get_all_equipments_to_combobox()
@@ -108,18 +108,19 @@ namespace CarRental
 
         private void NewCar_Load(object sender, EventArgs e)
         {
+          
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            allEquipments.Add(dataGridView2.CurrentRow);
-            MessageBox.Show(addedEquipments.Text);
-            addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
-        }
+        //        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //        {
+        //        }
+        //
+        //        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        //        {
+        //            allEquipments.Add(dataGridView2.CurrentRow);
+        //            MessageBox.Show(addedEquipments.Text);
+        //            addedEquipments.Items.Add(dataGridView2.CurrentRow.Cells["Id"].Value.ToString());
+        //        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -144,6 +145,16 @@ namespace CarRental
         private void addedEquipments_SelectedIndexChanged(object sender, EventArgs e)
         {
             MessageBox.Show((addedEquipments.SelectedItem as dynamic).Id.ToString());
+        }
+
+        private void equipments_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

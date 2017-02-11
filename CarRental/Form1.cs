@@ -39,7 +39,7 @@ namespace CarRental
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new Klienci().Show();
+            new Clients().Show();
         }
 
         private void button7_Click(object sender, EventArgs e)

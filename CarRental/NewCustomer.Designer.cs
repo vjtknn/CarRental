@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(247, 291);
+            this.label3.Location = new System.Drawing.Point(222, 291);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 3;
@@ -83,23 +83,23 @@
             // 
             // first_name
             // 
-            this.first_name.Location = new System.Drawing.Point(81, 288);
+            this.first_name.Location = new System.Drawing.Point(72, 288);
             this.first_name.Name = "first_name";
-            this.first_name.Size = new System.Drawing.Size(100, 20);
+            this.first_name.Size = new System.Drawing.Size(144, 20);
             this.first_name.TabIndex = 4;
             // 
             // last_name
             // 
-            this.last_name.Location = new System.Drawing.Point(299, 288);
+            this.last_name.Location = new System.Drawing.Point(281, 288);
             this.last_name.Name = "last_name";
-            this.last_name.Size = new System.Drawing.Size(100, 20);
+            this.last_name.Size = new System.Drawing.Size(169, 20);
             this.last_name.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(81, 330);
+            this.button1.Location = new System.Drawing.Point(43, 330);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(318, 23);
+            this.button1.Size = new System.Drawing.Size(407, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "NewCustomer";
-            this.Text = "Form2";
+            this.Text = "Dodaj nowego klienta";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
