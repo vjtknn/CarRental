@@ -45,6 +45,7 @@ namespace CarRental
             comboBox2.DataSource = null;
             comboBox3.DataSource = null;
             comboBox5.DataSource = null;
+            listBox1.Items.Clear();
             listaklientow();
         }
 
@@ -64,6 +65,7 @@ namespace CarRental
             marka = comboBox1.SelectedItem.ToString();
             comboBox2.DataSource = (from c in db.Cars where c.Brand == marka select c.Model).ToList();
             comboBox2.DisplayMember = "Model";
+
             comboBox2.Refresh();
         }
 
@@ -91,15 +93,27 @@ namespace CarRental
         {
             seats = int.Parse(comboBox3.SelectedItem.ToString());
 
+            List<int> carId =
+           (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Id).ToList();
+
+            foreach (var v in (from c in db.Cars_Equipments where c.Cars_id == carId.FirstOrDefault() select c.Equipments_id).ToList())
+            {
+                listBox1.Items.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
+            }
+
+
             comboBox5.DataSource =
                 (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
                 .ToList().Cast<ColorE>().ToList();
             comboBox5.DisplayMember = "Color";
-            kolor = comboBox5.SelectedText;
             comboBox5.Refresh();
            
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+      
+        }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -147,9 +161,6 @@ namespace CarRental
         {
         }
 
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
