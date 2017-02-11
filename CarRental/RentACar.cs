@@ -90,11 +90,14 @@ namespace CarRental
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             seats = int.Parse(comboBox3.SelectedItem.ToString());
+
             comboBox5.DataSource =
                 (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
-                .ToList();
+                .ToList().Cast<ColorE>().ToList();
             comboBox5.DisplayMember = "Color";
+            kolor = comboBox5.SelectedText;
             comboBox5.Refresh();
+           
         }
 
 
@@ -142,6 +145,11 @@ namespace CarRental
 
         private void RentACar_Load_1(object sender, EventArgs e)
         {
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
