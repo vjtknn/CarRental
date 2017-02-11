@@ -28,7 +28,8 @@ namespace CarRental
         public DateTime EndDate = DateTime.Today;
         public int cena { get; set; }
         public string klient { get; set; }
-
+        public List<string> wyposazenie { get; set; }
+ 
 
         public RentACar()
         {
@@ -78,11 +79,21 @@ namespace CarRental
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             kolor = comboBox5.SelectedItem.ToString();
+            List<int> carId =
+       (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Id).ToList();
+
+            foreach (var v in (from c in db.Cars_Equipments where c.Cars_id == carId.FirstOrDefault() select c.Equipments_id).ToList())
+            {
+                listBox1.Items.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
+                wyposazenie.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
+            }
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             modell = comboBox2.SelectedItem.ToString();
+          
             comboBox3.DataSource =
                 (from c in db.Cars where (c.Brand == marka && c.Model == modell) select c.Seats).ToList();
             comboBox3.DisplayMember = "Seats";
@@ -93,16 +104,7 @@ namespace CarRental
         {
             seats = int.Parse(comboBox3.SelectedItem.ToString());
 
-            List<int> carId =
-           (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Id).ToList();
-
-            foreach (var v in (from c in db.Cars_Equipments where c.Cars_id == carId.FirstOrDefault() select c.Equipments_id).ToList())
-            {
-                listBox1.Items.Add((from c in db.Equipments where c.Id == v select c.Name).FirstOrDefault());
-            }
-
-
-            comboBox5.DataSource =
+          comboBox5.DataSource =
                 (from c in db.Cars where (c.Brand == marka && c.Model == modell && c.Seats == seats) select c.Color)
                 .ToList().Cast<ColorE>().ToList();
             comboBox5.DisplayMember = "Color";
@@ -110,13 +112,12 @@ namespace CarRental
            
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
       
-        }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            
+
             StartDate = dateTimePicker1.Value;
         }
 
@@ -138,13 +139,18 @@ namespace CarRental
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string path = @"C:\Users\wwinnic1\Documents\test.txt";
+            string path = @"D:\Downloads\test.txt";
             using (StreamWriter zapisz = new StreamWriter(path))
             {
                 zapisz.WriteLine($"Marka {marka}");
                 zapisz.WriteLine($"Model {modell}");
-                zapisz.WriteLine($"Liczba siedzeń {seats}");
-                zapisz.WriteLine($"Kolor {kolor}");
+                zapisz.WriteLine($"Liczba siedzeń {seats.ToString()}");
+                zapisz.WriteLine($"Kolor: {kolor}");
+                zapisz.Write("Wyposażenie: ");
+                foreach (var v in wyposazenie)
+                {
+                    zapisz.Write($" {v},");
+                }
                 zapisz.WriteLine($"Klient {klient}");
                 zapisz.WriteLine($"Od {StartDate}");
                 zapisz.WriteLine($"Do {EndDate}");

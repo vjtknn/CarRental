@@ -64,28 +64,6 @@ namespace CarRental
                 }
             }
         }
-
-        private string colors_(string id)
-        {
-            switch (id)
-            {
-                case "0":
-                    return "Czarny";
-                case "1":
-                    return "Biały";
-                case "2":
-                    return "Czerwony";
-                case "3":
-                    return "Niebieski";
-                case "4":
-                    return "Żółty";
-                case "5":
-                    return "Zielony";
-                default:
-                    return null;
-            }
-        }
-
         private void parse_car()
         {
             db = new linqtosqlclassesDataContext();
@@ -97,8 +75,8 @@ namespace CarRental
             textBox1.Text = (from c in db.Cars where c.Id == item_id select c.Brand).FirstOrDefault();
             textBox2.Text = (from c in db.Cars where c.Id == item_id select c.Model).FirstOrDefault();
             textBox3.Text = (from c in db.Cars where c.Id == item_id select c.Seats).FirstOrDefault().ToString();
-            
-            textBox4.Text = colors_((from c in db.Cars where c.Id == item_id select c.Color).FirstOrDefault().ToString());
+            textBox4.Text =
+                ((from c in db.Cars where c.Id == item_id select c.Color).ToList().Cast<ColorE>().FirstOrDefault().ToString());
             textBox5.Text = (from c in db.Cars where c.Id == item_id select c.Price).FirstOrDefault().ToString() + " PLN";
 
         }
